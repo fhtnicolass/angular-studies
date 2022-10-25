@@ -1,0 +1,124 @@
+<section class="container criar-pensamentos ff-inter">
+  <header class="header">
+    <h2>Adicione um <br> pensamento novo:</h2>
+  </header>
+  <form>
+    <label for="pensamento">
+      Pensamento
+    </label>
+    <input
+      type="textarea"
+      class="input"
+      id="pensamento"
+      name="pensamento"
+      placeholder="Insira um pensamento"
+      [(ngModel)] = "pensamento.conteudo" >
+
+      <!-- Property Binding-->
+      <!-- ao usar os colchetes ao redor do value ex: [value]="pensamento.conteudo" , o angular busca no componente.-->
+      <!-- Neste caso, com os colchetes, o output na página é o valor do atributo que está no .ts-->
+      <!-- Caso fosse value="pensamento.conteudo" (sem os colchetes), o output seria literalmente "pensamento.conteudo"-->
+
+      <!-- Two way Data Binding-->
+      <!-- Ao usar o [(ngModel)], fazemos uma ligação dos dados tanto do js pro html quanto do html pro js-->
+      <!-- neste caso, ao alterar o input, nós alteramos o valor que está vindo do Js-->
+      <!-- e ao alterar o valor do js, alteramos o visual por conta dos property bindings abaixo-->
+    <label for="autoria">
+        Autoria ou fonte
+    </label>
+    <input
+      type="text"
+      class="input"
+      id="autoria"
+      name="autoria"
+      placeholder="Insira a autoria"
+      [(ngModel)] = "pensamento.autoria">
+
+      <label for="modelo"> Selecione o modelo do card:
+
+      </label>
+
+      <div class="container-radio">
+        <div class="radio-modelo">
+          <label for="modelo1">
+            <input
+              type="radio"
+              id="modelo1"
+              value="modelo1"
+              name="modelo-card"
+              [(ngModel)] = "pensamento.modelo">
+            <div class="custom-radio">
+              <span></span>
+            </div>
+            <span>Modelo 1</span>
+          </label>
+          Prévia:
+          <div class="modelo modelo1 ff-roboto-mono">
+            <img src="../../../../assets/imagens/modelo1.png" alt="Aspas AZUL CLARO">
+            <p class="conteudo">{{ pensamento.conteudo }}</p>
+            <p class="autoria"><b>{{ pensamento.autoria }}</b></p>
+            <!-- Como nós não estamos buscando o valor pelo atributo "value", utilizamos o Property Binding por interpolação-->
+            <!-- É o mesmo funcionamento que o com colchetes [], porém com chaves {{ }}-->
+            <!-- É uma boa prática deixar um espaço antes, e um depois, para melhor visualização-->
+          </div>
+        </div>
+
+        <div class="radio-modelo">
+          <label for="modelo2">
+            <input
+              type="radio"
+              id="modelo2"
+              value="modelo2"
+              name="modelo-card"
+              [(ngModel)] = "pensamento.modelo">
+            <div class="custom-radio">
+              <span></span>
+            </div>
+            <span>Modelo 2</span>
+          </label>
+          Prévia:
+          <div class="modelo modelo2 ff-roboto-mono">
+            <img src="../../../../assets/imagens/modelo2.png" alt="Aspas azuis">
+            <p class="conteudo">{{ pensamento.conteudo }}</p>
+            <p class="autoria"><b>{{ pensamento.autoria }}</b></p>
+            <!-- Como nós não estamos buscando o valor pelo atributo "value", utilizamos o Property Binding por interpolação-->
+            <!-- É o mesmo funcionamento que o com colchetes [], porém com chaves {{ }}-->
+            <!-- É uma boa prática deixar um espaço antes, e um depois, para melhor visualização-->
+          </div>
+        </div>
+
+        <div class="radio-modelo">
+          <label for="modelo3">
+            <input
+              type="radio"
+              id="modelo3"
+              value="modelo3"
+              name="modelo-card"
+              [(ngModel)] = "pensamento.modelo">
+
+            <div class="custom-radio">
+              <span></span>
+            </div>
+            <span>Modelo 3</span>
+          </label>
+          Prévia:
+          <div class="modelo modelo3 ff-roboto-mono">
+            <img src="../../../../assets/imagens/modelo3.png" alt="Aspas verdes">
+            <p class="conteudo">{{ pensamento.conteudo }}</p>
+            <p class="autoria"><b>{{ pensamento.autoria }}</b></p>
+            <!-- Como nós não estamos buscando o valor pelo atributo "value", utilizamos o Property Binding por interpolação-->
+            <!-- É o mesmo funcionamento que o com colchetes [], porém com chaves {{ }}-->
+            <!-- É uma boa prática deixar um espaço antes, e um depois, para melhor visualização-->
+          </div>
+        </div>
+      </div>
+      <div class="acoes">
+        <button (click)="criarPensamento()" class="botao">Salvar</button>
+        <!-- Aqui temos um evento de Event Binding, onde a sintaxe é (evento)="método()"-->
+        <!-- Podemos ler o evento acima como: ao clicar, executa o método criarPensamento-->
+        <!-- Uma forma abstrata de enxergar o Event Binding,
+           é ver os parenteses como a ação de colocar as mãos nos ouvidos para ouvir algo-->
+        <button (click)="cancelarPensamento()" class="botao">Cancelar</button>
+      </div>
+  </form>
+</section>
